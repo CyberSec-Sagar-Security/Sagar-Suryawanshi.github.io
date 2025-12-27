@@ -4,10 +4,12 @@ Place the following files in this folder:
 
 ## Required Files
 
-### 1. Resume PDF
+### 1. Resume PDF (PRIVATE - DO NOT COMMIT)
 - **Filename**: `Sagar_Suryawanshi_Resume.pdf`
 - **Description**: Your professional resume in PDF format
-- **Usage**: Linked from the "Download Resume" button in the hero section
+- **⚠️ IMPORTANT**: This file is excluded from Git via .gitignore to protect personal information
+- **Usage**: The "Request Resume" button redirects visitors to the contact section
+- **Note**: For local testing, place your resume here. It will NOT be pushed to GitHub.
 
 ### 2. Profile Photo (Optional)
 - **Filename**: `profile.jpg` or `profile.png`

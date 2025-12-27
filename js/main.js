@@ -5,6 +5,37 @@
  * ==========================================
  */
 
+// ==================== RESUME DOWNLOAD FUNCTION ====================
+
+/**
+ * Download Resume from Base64 encoded data
+ */
+function downloadResume() {
+    if (typeof resumeBase64 === 'undefined') {
+        alert('Resume is currently unavailable. Please contact me directly.');
+        return;
+    }
+    
+    // Convert Base64 to Blob
+    const byteCharacters = atob(resumeBase64);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    const blob = new Blob([byteArray], { type: 'application/pdf' });
+    
+    // Create download link
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'Sagar_Suryawanshi_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+}
+
 // ==================== DATA OBJECTS ====================
 
 /**

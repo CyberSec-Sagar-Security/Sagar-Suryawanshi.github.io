@@ -1,0 +1,14 @@
+# Resume files - Contains personal information
+# These should not be pushed to GitHub
+*.pdf
+assets/*.pdf
+Sagar Resume*.pdf
+assets/Sagar_Suryawanshi_Resume.pdf
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
