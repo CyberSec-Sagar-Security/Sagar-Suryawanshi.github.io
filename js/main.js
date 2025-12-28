@@ -74,6 +74,7 @@ const certificationsData = [
         issuer: "CompTIA",
         date: "October 2025",
         icon: "bi-patch-check-fill",
+        badgeImage: "https://images.credly.com/size/340x340/images/74790a75-8451-400a-8571-eb76c8f1ae7c/image.png",
         isNew: true,
         link: "https://www.credly.com/earner/earned/badge/61395869-3172-4bd4-8838-37af231abf1f"
     },
@@ -83,6 +84,7 @@ const certificationsData = [
         issuer: "Coursera",
         date: "September 2025",
         icon: "bi-google",
+        badgeImage: "https://images.credly.com/size/340x340/images/0bf0f2da-a699-4c82-82e2-56dcf1f2e1c7/image.png",
         isNew: false,
         link: "https://www.coursera.org/account/accomplishments/specialization/BBI4LDE7CDW9"
     },
@@ -92,6 +94,7 @@ const certificationsData = [
         issuer: "Cisco",
         date: "June 2025",
         icon: "bi-hdd-network",
+        badgeImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Cisco_logo_blue_2016.svg/1200px-Cisco_logo_blue_2016.svg.png",
         isNew: false,
         link: "https://www.coursera.org/account/accomplishments/verify/WEK4QU74UZ9W"
     },
@@ -101,6 +104,7 @@ const certificationsData = [
         issuer: "LetsDefend",
         date: "December 2025",
         icon: "bi-mortarboard-fill",
+        badgeImage: "https://app.letsdefend.io/static/media/logo.5f6d1e0a.svg",
         isNew: true,
         link: "https://app.letsdefend.io/certificate/show/b172f6f9-4aa4-4c3f-a2d2-d482345f2731"
     }
@@ -428,12 +432,19 @@ function renderCertifications() {
     certificationsData.forEach((cert, index) => {
         const certCard = document.createElement('div');
         certCard.className = 'col-lg-3 col-md-6';
+        
+        // Use badge image if available, otherwise fallback to icon
+        const badgeContent = cert.badgeImage 
+            ? `<img src="${cert.badgeImage}" alt="${cert.name}" class="cert-badge-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+               <div class="cert-badge cert-badge-fallback" style="display:none;"><i class="bi ${cert.icon}"></i></div>`
+            : `<div class="cert-badge"><i class="bi ${cert.icon}"></i></div>`;
+        
         certCard.innerHTML = `
             <a href="${cert.link}" target="_blank" rel="noopener noreferrer" class="cert-card-link">
                 <div class="cert-card" style="animation-delay: ${index * 0.1}s">
                     ${cert.isNew ? '<div class="cert-new">New</div>' : ''}
-                    <div class="cert-badge">
-                        <i class="bi ${cert.icon}"></i>
+                    <div class="cert-badge-container">
+                        ${badgeContent}
                     </div>
                     <h3>${cert.name}${cert.code ? ` (${cert.code})` : ''}</h3>
                     <p class="cert-issuer">${cert.issuer}</p>
