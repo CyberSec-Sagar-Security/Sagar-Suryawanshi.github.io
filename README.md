@@ -4,7 +4,7 @@ A professional, recruiter-ready cybersecurity portfolio website built with HTML5
 
 ## 🔐 Live Demo
 
-Visit: [https://sagarsuryawanshi.github.io](https://sagarsuryawanshi.github.io)
+Visit: https://cybersec-sagar-security.github.io/Sagar-Suryawanshi.github.io/
 
 ## ✨ Features
 
@@ -114,7 +114,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 👤 Author
 
 **Sagar B. Suryawanshi**
-- LinkedIn: [linkedin.com/in/sagarsuryawanshi](https://linkedin.com/in/sagarsuryawanshi)
+- LinkedIn: (https://www.linkedin.com/in/sagar--suryawanshi/)
 - GitHub: [github.com/sagarsuryawanshi](https://github.com/sagarsuryawanshi)
 - Email: sagar.suryawanshi@email.com
 
