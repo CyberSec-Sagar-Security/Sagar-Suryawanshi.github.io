@@ -74,7 +74,7 @@ const certificationsData = [
         issuer: "CompTIA",
         date: "October 2025",
         icon: "bi-patch-check-fill",
-        badgeImage: "https://images.credly.com/size/340x340/images/74790a75-8451-400a-8571-eb76c8f1ae7c/image.png",
+        badgeImage: "https://comptiacdn.azureedge.net/webcontent/images/default-source/siteicons/logosecurityplus.svg",
         isNew: true,
         link: "https://www.credly.com/earner/earned/badge/61395869-3172-4bd4-8838-37af231abf1f"
     },
@@ -104,7 +104,7 @@ const certificationsData = [
         issuer: "LetsDefend",
         date: "December 2025",
         icon: "bi-mortarboard-fill",
-        badgeImage: "https://app.letsdefend.io/static/media/logo.5f6d1e0a.svg",
+        badgeImage: "assets/letsdefend-badge.png",
         isNew: true,
         link: "https://app.letsdefend.io/certificate/show/b172f6f9-4aa4-4c3f-a2d2-d482345f2731"
     }
