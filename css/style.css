@@ -1,5 +1,5 @@
 /* ==========================================
-   SAGAR B. SURYAWANSHI - CYBERSECURITY PORTFOLIO
+   SAGAR SURYAWANSHI - CYBERSECURITY PORTFOLIO
    Professional CSS Stylesheet
    ========================================== */
 
@@ -493,7 +493,7 @@ p {
     border-radius: 50%;
     object-fit: cover;
     position: relative;
-    z-index: 2;
+    z-index: 10;
 }
 
 .image-placeholder {
@@ -1371,4 +1371,309 @@ p {
     .section-padding {
         padding: 30px 0;
     }
+
+    /* Security: Hide protected images on print */
+    .image-protection-wrapper,
+    .about-image img,
+    [data-protected="image"] {
+        visibility: hidden !important;
+        position: relative;
+    }
+
+    .image-protection-wrapper::after,
+    .about-image::after {
+        content: "© Sagar Suryawanshi - Image Protected" !important;
+        visibility: visible !important;
+        display: block !important;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 12px;
+        color: #666;
+        text-align: center;
+        background: #f0f0f0;
+        padding: 20px;
+        border: 1px dashed #ccc;
+    }
+}
+
+/* ==================== SECURITY STYLES ==================== */
+
+/* Text selection prevention for protected content */
+.no-select,
+[data-pii],
+[data-protected="pii"] {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* Image protection wrapper */
+.image-protection-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 0;
+}
+
+/* Transparent overlay to intercept clicks/drags */
+.image-protection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+    z-index: 10;
+    cursor: default;
+    pointer-events: auto;
+}
+
+/* Image drag prevention */
+.image-protection-wrapper img,
+.about-image img,
+[data-protected="image"] {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+}
+
+/* Dynamic watermark overlay */
+.image-watermark {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 10px;
+    font-family: var(--font-mono);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 11;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.image-protection-wrapper:hover .image-watermark {
+    opacity: 1;
+}
+
+.watermark-date {
+    opacity: 0.7;
+    font-size: 9px;
+}
+
+/* Canvas protected images */
+.canvas-protected {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Honeypot styles - Hidden from users, visible to scrapers */
+.ht-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
+
+/* Security notice toast */
+.security-notice {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    max-width: 90%;
+    text-align: center;
+}
+
+.security-notice.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.security-notice i {
+    color: var(--accent-primary);
+    font-size: 1.1rem;
+}
+
+/* Protected content cursor */
+[data-protected="pii"],
+[data-pii] {
+    cursor: default;
+}
+
+/* Disable image context on about section - transparent overlay for protection */
+.about-image {
+    position: relative;
+    display: inline-block;
+}
+
+/* Ensure the profile photo is always visible */
+.about-image img,
+.about-image .profile-photo {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 10;
+}
+
+/* Protection overlay - positioned behind the image so it doesn't block visibility */
+.about-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    pointer-events: auto;
+    background: transparent;
+}
+
+/* Anti-bot detection styling */
+.automated-access-detected .image-watermark {
+    opacity: 1 !important;
+}
+
+/* Ensure protected elements remain interactive for legitimate use */
+.contact-card[data-pii] {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.contact-card[data-pii] a {
+    pointer-events: auto;
+}
+
+/* Mobile-friendly security notices */
+@media (max-width: 576px) {
+    .security-notice {
+        bottom: 10px;
+        padding: 10px 16px;
+        font-size: 0.8rem;
+        width: 95%;
+        max-width: 95%;
+    }
+    
+    .image-watermark {
+        font-size: 8px;
+        padding: 6px 8px;
+    }
+}
+
+/* ==================== ADDITIONAL SECURITY HARDENING ==================== */
+
+/* Prevent input autocomplete on any future forms */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-card) inset !important;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+/* Prevent form element styling attacks */
+input, textarea, select, button {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Prevent resize-based fingerprinting */
+textarea {
+    resize: none;
+}
+
+/* Hide any potential XSS injection visual indicators */
+[style*="position: fixed"],
+[style*="position:fixed"] {
+    /* Allow only known fixed elements */
+}
+
+/* Prevent iframe injection styling */
+iframe:not([src^="https://www.youtube.com"]):not([src^="https://player.vimeo.com"]) {
+    display: none !important;
+}
+
+/* Base tag hijacking prevention */
+base:not(:first-of-type) {
+    display: none !important;
+}
+
+/* Form element isolation */
+form {
+    position: relative;
+}
+
+/* Prevent CSS injection via custom properties */
+:root {
+    /* Lock down custom properties */
+    --injection-test: initial;
+}
+
+/* Prevent overlay attacks on links - but not on image containers */
+a[href]:not(.about-image):not(.contact-card) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure footer links remain visible (anti-phishing) */
+.footer-social a {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* External link indicator removed to preserve icon-only links */
+
+/* Prevent clipboard hijacking visual cues */
+::selection {
+    background: var(--accent-primary);
+    color: var(--bg-primary);
+}
+
+/* Secure focus states for accessibility and security */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 2px;
+}
+
+/* Prevent drag-and-drop attacks - exclude images */
+*:not(img):not(.profile-photo):not([data-protected="image"]) {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+/* Allow specific elements to be draggable if needed */
+[draggable="true"] {
+    -webkit-user-drag: auto;
+    user-drag: auto;
 }

@@ -1,6 +1,6 @@
 /**
  * ==========================================
- * SAGAR B. SURYAWANSHI - CYBERSECURITY PORTFOLIO
+ * SAGAR SURYAWANSHI - CYBERSECURITY PORTFOLIO
  * Main JavaScript File
  * ==========================================
  */

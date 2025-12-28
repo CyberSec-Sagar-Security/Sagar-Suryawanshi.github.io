@@ -1,0 +1,10 @@
+# Security Policy for Sagar Suryawanshi's Portfolio
+# https://securitytxt.org/
+
+Contact: mailto:sagar.suryawanshi@outlook.in
+Preferred-Languages: en
+Canonical: https://cybersec-sagar-security.github.io/.well-known/security.txt
+Expires: 2026-12-31T23:59:59.000Z
+
+# This is a personal portfolio website.
+# If you discover a security vulnerability, please report it responsibly.

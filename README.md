@@ -1,4 +1,4 @@
-# Sagar B. Suryawanshi - Cybersecurity Portfolio
+# Sagar Suryawanshi - Cybersecurity Portfolio
 
 A professional, recruiter-ready cybersecurity portfolio website built with HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript.
 
@@ -113,9 +113,9 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-**Sagar B. Suryawanshi**
-- LinkedIn: (https://www.linkedin.com/in/sagar--suryawanshi/)
-- GitHub: [github.com/sagarsuryawanshi](https://github.com/sagarsuryawanshi)
+**Sagar Suryawanshi**
+- LinkedIn: [linkedin.com/in/sagar--suryawanshi](https://www.linkedin.com/in/sagar--suryawanshi/)
+- GitHub: [github.com/CyberSec-Sagar-Security](https://github.com/CyberSec-Sagar-Security)
 - Email: sagar.suryawanshi@email.com
 
 ---

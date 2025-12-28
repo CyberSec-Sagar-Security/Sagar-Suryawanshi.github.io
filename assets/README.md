@@ -28,7 +28,7 @@ To add your photo, replace the placeholder in `index.html`:
 </div>
 
 <!-- Replace with -->
-<img src="assets/profile.jpg" alt="Sagar B. Suryawanshi" class="profile-photo">
+<img src="assets/profile.jpg" alt="Sagar Suryawanshi" class="profile-photo">
 ```
 
 Then add this CSS to `style.css`:
